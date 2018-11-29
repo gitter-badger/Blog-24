@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>日志 | 你的ENTER键价值千亿</title>
+  <title>slf4j注解简化日志代码 | 你的ENTER键价值千亿</title>
   <meta name="author" content="JosephGK">
   
   <meta name="description" content="gekun,葛坤">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="slf4j注解简化日志代码">
   <meta property="og:site_name" content="你的ENTER键价值千亿">
 
   
@@ -45,37 +45,77 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">日志</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-11-28T16:00:00.000Z"><a href="/Blog/2018/11/29/@Slf4j/">2018-11-29</a></time>
+      
+      
+  
+    <h1 class="title">slf4j注解简化日志代码</h1>
+  
 
-
-  <div class="archive">
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-11-28T16:00:00.000Z"><a href="/Blog/2018/11/29/@Slf4j/">2018-11-29</a></time>
-            
-              <h1 class="title"><a href="/Blog/2018/11/29/@Slf4j/">slf4j注解简化日志代码</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-11-26T16:00:00.000Z"><a href="/Blog/2018/11/27/logback/">2018-11-27</a></time>
-            
-              <h1 class="title"><a href="/Blog/2018/11/27/logback/">logback</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+    </header>
+    <div class="entry">
+      
+        <h3 id="pom中添加依赖"><a href="#pom中添加依赖" class="headerlink" title="pom中添加依赖"></a>pom中添加依赖</h3><pre><code>&lt;dependency&gt;
+   &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+   &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="在类上添加-Slf4j注解"><a href="#在类上添加-Slf4j注解" class="headerlink" title="在类上添加@Slf4j注解"></a>在类上添加@Slf4j注解</h3><pre><code>@Slf4j
+public class Test {
+}    
+</code></pre><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
+<li>类中不需要写private  final Logger logger = LoggerFactory.getLogger(XXX.class);</li>
+</ul>
+<h3 id="直接在代码中使用log"><a href="#直接在代码中使用log" class="headerlink" title="直接在代码中使用log"></a>直接在代码中使用log</h3><pre><code>log.debug(&quot;debug message&quot;);
+log.warn(&quot;warn message&quot;);
+log.info(&quot;info message&quot;);
+log.error(&quot;error message&quot;);
+log.trace(&quot;trace message&quot;);
+</code></pre><h3 id="如果注解-Slf4j注入后找不到变量log，需要安装lombok插件"><a href="#如果注解-Slf4j注入后找不到变量log，需要安装lombok插件" class="headerlink" title="如果注解@Slf4j注入后找不到变量log，需要安装lombok插件"></a>如果注解@Slf4j注入后找不到变量log，需要安装lombok插件</h3>
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/Blog/categories/日志/">日志</a>
   </div>
+
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://josephagk.github.io/2018/11/29/@Slf4j/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">

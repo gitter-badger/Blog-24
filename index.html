@@ -52,6 +52,135 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2018-11-28T16:00:00.000Z"><a href="/Blog/2018/11/29/@Slf4j/">2018-11-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/Blog/2018/11/29/@Slf4j/">slf4j注解简化日志代码</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="pom中添加依赖"><a href="#pom中添加依赖" class="headerlink" title="pom中添加依赖"></a>pom中添加依赖</h3><pre><code>&lt;dependency&gt;
+   &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+   &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="在类上添加-Slf4j注解"><a href="#在类上添加-Slf4j注解" class="headerlink" title="在类上添加@Slf4j注解"></a>在类上添加@Slf4j注解</h3><pre><code>@Slf4j
+public class Test {
+}    
+</code></pre><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ul>
+<li>类中不需要写private  final Logger logger = LoggerFactory.getLogger(XXX.class);</li>
+</ul>
+<h3 id="直接在代码中使用log"><a href="#直接在代码中使用log" class="headerlink" title="直接在代码中使用log"></a>直接在代码中使用log</h3><pre><code>log.debug(&quot;debug message&quot;);
+log.warn(&quot;warn message&quot;);
+log.info(&quot;info message&quot;);
+log.error(&quot;error message&quot;);
+log.trace(&quot;trace message&quot;);
+</code></pre><h3 id="如果注解-Slf4j注入后找不到变量log，需要安装lombok插件"><a href="#如果注解-Slf4j注入后找不到变量log，需要安装lombok插件" class="headerlink" title="如果注解@Slf4j注入后找不到变量log，需要安装lombok插件"></a>如果注解@Slf4j注入后找不到变量log，需要安装lombok插件</h3>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-11-28T16:00:00.000Z"><a href="/Blog/2018/11/29/数据摘要算法/">2018-11-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/Blog/2018/11/29/数据摘要算法/">数据摘要算法</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="数据摘要算法简介"><a href="#数据摘要算法简介" class="headerlink" title="数据摘要算法简介"></a>数据摘要算法简介</h2><ul>
+<li>数据摘要算法也被称为哈希（Hash）算法或散列算法。</li>
+<li>把任意长度的输入，通过散列算法，变换成固定长度的输出，该输出就是散列值。</li>
+<li>是一种压缩映射，即散列值的空间通常远小于输入的空间，不同的输入可能会散列成相同的输出，而不可能从散列值来唯一的确定输入值。</li>
+<li>是一种将任意长度的消息压缩到某一固定长度的消息摘要的函数。</li>
+<li>MD5 和 SHA1 可以说是目前应用最广泛的Hash算法，是以 MD4 为基础设计的。</li>
+</ul>
+<h3 id="CRC8-CRC16-CRC32"><a href="#CRC8-CRC16-CRC32" class="headerlink" title="CRC8,CRC16,CRC32"></a>CRC8,CRC16,CRC32</h3><ul>
+<li>循环冗余校验</li>
+<li>CRC32是通讯领域最多的算法</li>
+<li>严格的来说，CRC更应该被称为数据校验算法，但其功能与数据摘要算法类似</li>
+<li>在 WinRAR、WinZIP 等软件中，也是以 CRC32 作为文件校验算法的。</li>
+</ul>
+<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><pre><code>public static long crc32(String data) {
+    java.util.zip.CRC32 crc = new java.util.zip.CRC32();
+    crc.update(data.getBytes());
+    return crc.getValue();
+}
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-11-28T16:00:00.000Z"><a href="/Blog/2018/11/29/拦截器/">2018-11-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/Blog/2018/11/29/拦截器/">拦截器</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2018-11-26T16:00:00.000Z"><a href="/Blog/2018/11/27/StringTokenizer/">2018-11-27</a></time>
       
       
@@ -331,18 +460,67 @@ return sb.toString();
     <header>
       
         <div class="icon"></div>
-        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/idea常用快捷键/">2018-11-26</a></time>
+        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/前端页面刷新一次/">2018-11-26</a></time>
       
       
   
-    <h1 class="title"><a href="/Blog/2018/11/26/idea常用快捷键/">idea常用快捷键</a></h1>
+    <h1 class="title"><a href="/Blog/2018/11/26/前端页面刷新一次/">页面刷新一次</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>CTRL+ALT+T    把选中的代码放在 TRY{} IF{} ELSE{} 里<br>Ctrl + I   实现方法<br>Ctr+shift+U   大小写转化<br>Ctrl+Shift+J  整合两行为一行<br>CTRL+ALT+L  格式化代码<br>CTRL+P   方法参数提示<br>CTRL+Q  可以看到当前方法的声明<br>Shift+F6   重构-重命名 (包、类、方法、变量、甚至注释等)<br>Ctrl＋Shift＋Backspace可以跳转到上次编辑的地<br>CTRL+ALT+ left/right  前后导航编辑过的地方<br>Alt+ left/right 切换代码视图<br>ALT+ ↑/↓  在方法间快速移动定位<br>ALT+F7 找到你的函数或者变量或者类的所有引用到的地方<br>Ctrl+N   查找类<br>Ctrl+Shift+N 查找文件<br>CTRL+E   最近打开的文件<br>F2  警告快速定位<br>CTRL+ALT+B  找所有的子类<br>Ctrl+H 显示类结构图<br>Ctrl+Q 显示注释文档<br>CTRL+Z   倒退(撤销)<br>CTRL+SHIFT+Z  向前(取消撤销)<br>Shift+F6  重命名 </p>
+        <p>页面刷新一次</p>
+<pre><code>window.onload = function(){
+        var url=document.location.href;  //获取浏览器访问栏里的地址
+        if( url.indexOf(&quot;rflag=&quot;)==-1 ){    //判断地址后面是否多了某些值，没有就进方法里进行刷新
+            var t = new Date();
+            window.location.href = url+&quot;?rflag=&quot;+t.getTime();
+        }
+    }
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/sql执行顺序/">2018-11-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/Blog/2018/11/26/sql执行顺序/">sql执行顺序</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="SQL逻辑查询语句执行顺序"><a href="#SQL逻辑查询语句执行顺序" class="headerlink" title="SQL逻辑查询语句执行顺序"></a>SQL逻辑查询语句执行顺序</h3><pre><code>(7)     SELECT 
+(8)     DISTINCT &lt;select_list&gt;
+(1)     FROM &lt;left_table&gt;
+(3)     &lt;join_type&gt; JOIN &lt;right_table&gt;
+(2)     ON &lt;join_condition&gt;
+(4)     WHERE &lt;where_condition&gt;
+(5)     GROUP BY &lt;group_by_list&gt;
+(6)     HAVING &lt;having_condition&gt;
+(9)     ORDER BY &lt;order_by_condition&gt;
+(10)    LIMIT &lt;limit_number&gt;
+</code></pre>
       
     </div>
     <footer>
@@ -452,242 +630,11 @@ return sb.toString();
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/sql执行顺序/">2018-11-26</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/Blog/2018/11/26/sql执行顺序/">sql执行顺序</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="SQL逻辑查询语句执行顺序"><a href="#SQL逻辑查询语句执行顺序" class="headerlink" title="SQL逻辑查询语句执行顺序"></a>SQL逻辑查询语句执行顺序</h3><pre><code>(7)     SELECT 
-(8)     DISTINCT &lt;select_list&gt;
-(1)     FROM &lt;left_table&gt;
-(3)     &lt;join_type&gt; JOIN &lt;right_table&gt;
-(2)     ON &lt;join_condition&gt;
-(4)     WHERE &lt;where_condition&gt;
-(5)     GROUP BY &lt;group_by_list&gt;
-(6)     HAVING &lt;having_condition&gt;
-(9)     ORDER BY &lt;order_by_condition&gt;
-(10)    LIMIT &lt;limit_number&gt;
-</code></pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/前端页面刷新一次/">2018-11-26</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/Blog/2018/11/26/前端页面刷新一次/">页面刷新一次</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>页面刷新一次</p>
-<pre><code>window.onload = function(){
-        var url=document.location.href;  //获取浏览器访问栏里的地址
-        if( url.indexOf(&quot;rflag=&quot;)==-1 ){    //判断地址后面是否多了某些值，没有就进方法里进行刷新
-            var t = new Date();
-            window.location.href = url+&quot;?rflag=&quot;+t.getTime();
-        }
-    }
-</code></pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/常用sql/">2018-11-26</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/Blog/2018/11/26/常用sql/">常用sql</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="常用sql"><a href="#常用sql" class="headerlink" title="常用sql"></a>常用sql</h1><h3 id="查询数据库中表的统计信息"><a href="#查询数据库中表的统计信息" class="headerlink" title="查询数据库中表的统计信息"></a>查询数据库中表的统计信息</h3><pre><code>SELECT
-    col.TABLE_SCHEMA 数据库,
-    col.TABLE_NAME 表名称,
-    tal.TABLE_ROWS 数据规模,
-    tal.table_comment 表描述,
-    col.COLUMN_NAME 字段名称,
-    col.COLUMN_COMMENT 字段描述,
-    IFNULL( pri.shiz, 0 ) 是否主键,
-    IFNULL( ind.shis, 0 ) 是否索引,
-    col.IS_NULLABLE 是否可空,
-    col.CHARACTER_MAXIMUM_LENGTH 字段长度,
-    col.DATA_TYPE 字段类型 
-FROM
-    `information_schema`.`columns` col
-    LEFT JOIN information_schema.`TABLES` tal ON col.TABLE_NAME = tal.TABLE_NAME
-    LEFT JOIN (
-                SELECT
-                    t.TABLE_NAME,
-                    c.COLUMN_NAME,
-                    &apos;1&apos; AS shiz 
-                FROM
-                    INFORMATION_SCHEMA.TABLE_CONSTRAINTS AS t,
-                    INFORMATION_SCHEMA.KEY_COLUMN_USAGE AS c 
-                WHERE
-                    t.TABLE_NAME = c.TABLE_NAME 
-                    AND t.TABLE_SCHEMA = &apos;lmpdb&apos; 
-                    AND t.CONSTRAINT_TYPE = &apos;PRIMARY KEY&apos; 
-                    ) pri ON pri.TABLE_NAME = col.TABLE_NAME AND pri.COLUMN_NAME = col.COLUMN_NAME
-    LEFT JOIN ( 
-                    SELECT 
-                                table_name, COLUMN_NAME, &apos;1&apos; AS shis 
-                    FROM 
-                                INFORMATION_SCHEMA.STATISTICS 
-                    WHERE 
-                                TABLE_SCHEMA = &apos;lmpdb&apos; 
-                                ) ind ON ind.table_name = col.TABLE_NAME AND ind.COLUMN_NAME = col.COLUMN_NAME 
-WHERE
-    col.TABLE_SCHEMA = &apos;lmpdb&apos; 
-ORDER BY
-    col.TABLE_NAME
-</code></pre><h3 id="按时间统计信息"><a href="#按时间统计信息" class="headerlink" title="按时间统计信息"></a>按时间统计信息</h3><pre><code>    SELECT
-    t.days,
-    count( * ) count 
-FROM
-    ( SELECT DATE_FORMAT( l.cdate, &apos;%Y%m%d&apos; ) days FROM login_log l ) t 
-GROUP BY
-    t.days
-</code></pre><h3 id="使用in查询后按in数据排序"><a href="#使用in查询后按in数据排序" class="headerlink" title="使用in查询后按in数据排序"></a>使用in查询后按in数据排序</h3><pre><code>SELECT
-    * 
-FROM
-    user_info 
-WHERE
-    user_info.user_code IN (
-    01463843,
-    01416140,
-    01475304,
-    01466211) 
-ORDER BY
-    field(
-    user_code,
-    01463843,
-    01416140,
-    01475304,
-    01466211)
-</code></pre><h3 id="三种成绩排序查询"><a href="#三种成绩排序查询" class="headerlink" title="三种成绩排序查询"></a>三种成绩排序查询</h3><pre><code>&lt;select id=&quot;getRankFirst&quot; resultMap=&quot;aiExamCandidateMap&quot;&gt;
-    SELECT
-        user_code,
-        user_name,
-        exam_id,
-        gross_score,
-        exam_score,
-        @rownum := @rownum + 1 as ranking
-    FROM
-        ai_exam_candidate t join (select @rownum :=0) r
-
-    WHERE
-        exam_id = #{model.examId} and exam_score is not null
-    ORDER BY exam_score desc
-&lt;/select&gt;
-&lt;select id=&quot;getRankSecond&quot; resultMap=&quot;aiExamCandidateMap&quot;&gt;
-    SELECT
-        user_code,
-        user_name,
-        exam_id,
-        gross_score,
-        exam_score,
-        CASE
-            WHEN @rowtotal = exam_score THEN @rownum
-            WHEN @rowtotal := exam_score THEN @rownum := @rownum + 1
-            WHEN @rowtotal := 0 THEN @rownum := @rownum +1
-                    WHEN exam_score is null then @rownum+1
-        END AS ranking
-    FROM
-        ai_exam_candidate t join (select @rownum :=0,@rowtotal := 0) r
-
-    WHERE
-        exam_id = #{model.examId} and exam_score is not null
-    ORDER BY exam_score desc
-&lt;/select&gt;
-&lt;select id=&quot;getRankThird&quot; resultMap=&quot;aiExamCandidateMap&quot;&gt;
-    SELECT
-        user_code,
-        user_name,
-        exam_id,
-        gross_score,
-        exam_score,
-        @rownum := @rownum + 1 AS num_tmp,
-        @incrnum := CASE
-            WHEN @rowtotal = exam_score THEN @incrnum
-            WHEN @rowtotal := exam_score THEN @rownum
-                    WHEN exam_score is null THEN @rownum
-        END ranking
-    FROM
-        ai_exam_candidate t join (select @rownum :=0,@rowtotal := 0,@incrnum := 0) r
-
-    WHERE
-        exam_id = #{model.examId} and exam_score is not null
-    ORDER BY exam_score desc
-&lt;/select&gt;        
-</code></pre>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
+  
+    <a href="/Blog/page/2/" class="alignright next">Next</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
@@ -710,9 +657,13 @@ ORDER BY
   
     <li><a href="/Blog/categories/mysql/">mysql</a><small>2</small></li>
   
+    <li><a href="/Blog/categories/springmvc/">springmvc</a><small>1</small></li>
+  
     <li><a href="/Blog/categories/前端/">前端</a><small>3</small></li>
   
-    <li><a href="/Blog/categories/日志/">日志</a><small>1</small></li>
+    <li><a href="/Blog/categories/加密/">加密</a><small>1</small></li>
+  
+    <li><a href="/Blog/categories/日志/">日志</a><small>2</small></li>
   
   </ul>
 </div>
@@ -725,7 +676,11 @@ ORDER BY
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
+    <li><a href="/Blog/tags/Interceptor/">Interceptor</a><small>1</small></li>
+  
     <li><a href="/Blog/tags/class/">class</a><small>1</small></li>
+  
+    <li><a href="/Blog/tags/hash/">hash</a><small>1</small></li>
   
     <li><a href="/Blog/tags/idea/">idea</a><small>2</small></li>
   
