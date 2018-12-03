@@ -52,6 +52,262 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2018-11-26T16:00:00.000Z"><a href="/Blog/2018/11/27/StringTokenizer/">2018-11-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/Blog/2018/11/27/StringTokenizer/">StringTokenizer</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="不指定分隔符使用默认的，即“-t-n-r-f”-空格字符、制表符、换行字符、回车字符和表单输入字符"><a href="#不指定分隔符使用默认的，即“-t-n-r-f”-空格字符、制表符、换行字符、回车字符和表单输入字符" class="headerlink" title="不指定分隔符使用默认的，即“   \t\n\r\f”:空格字符、制表符、换行字符、回车字符和表单输入字符"></a>不指定分隔符使用默认的，即“   \t\n\r\f”:空格字符、制表符、换行字符、回车字符和表单输入字符</h3><pre><code> StringTokenizer token = new StringTokenizer(&quot;Hello world!This is Java code,stringTokenizer Demo.&quot;);
+        while (token.hasMoreElements()) {
+            System.out.println(token.nextToken());
+        }
+//输出
+Hello
+world!This
+is
+Java
+code,stringTokenizer
+Demo.
+</code></pre><h3 id="指定分隔符，将按照指定的分隔符分隔，忽略默认分隔符，并且不返回分隔符令牌"><a href="#指定分隔符，将按照指定的分隔符分隔，忽略默认分隔符，并且不返回分隔符令牌" class="headerlink" title="指定分隔符，将按照指定的分隔符分隔，忽略默认分隔符，并且不返回分隔符令牌"></a>指定分隔符，将按照指定的分隔符分隔，忽略默认分隔符，并且不返回分隔符令牌</h3><pre><code>StringTokenizer token = new StringTokenizer(&quot;Hello world!This is Java code,stringTokenizer Demo.&quot;,&quot;s!,.&quot;);
+while (token.hasMoreElements()) {
+    System.out.println(token.nextToken());
+}
+//输出
+Hello world
+Thi
+ i
+ Java code
+tringTokenizer Demo
+</code></pre><h3 id="指定分隔符，并指定返回令牌为true，将按照指定的分隔符分隔，忽略默认分隔符，并且返回分隔符令牌"><a href="#指定分隔符，并指定返回令牌为true，将按照指定的分隔符分隔，忽略默认分隔符，并且返回分隔符令牌" class="headerlink" title="指定分隔符，并指定返回令牌为true，将按照指定的分隔符分隔，忽略默认分隔符，并且返回分隔符令牌"></a>指定分隔符，并指定返回令牌为true，将按照指定的分隔符分隔，忽略默认分隔符，并且返回分隔符令牌</h3><pre><code>StringTokenizer token = new StringTokenizer(&quot;Hello world!This is Java code,stringTokenizer Demo.&quot;,&quot;s!,.&quot;,true);
+while (token.hasMoreElements()) {
+    System.out.println(token.nextToken());
+}
+//输出
+Hello world
+!
+Thi
+s
+ i
+s
+ Java code
+,
+s
+tringTokenizer Demo
+.
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/idea中设置生成toString为json/">2018-11-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/Blog/2018/11/26/idea中设置生成toString为json/">idea中设置toString为json格式</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="shift-g-调出生成对话框，点击toString-，弹出Generate-toString-对话框"><a href="#shift-g-调出生成对话框，点击toString-，弹出Generate-toString-对话框" class="headerlink" title="shift+g 调出生成对话框，点击toString()，弹出Generate toString()对话框"></a>shift+g 调出生成对话框，点击toString()，弹出Generate toString()对话框</h2><p><img src="http://pitysgsqn.bkt.clouddn.com/Snipaste_2018-11-27_16-35-39.png" alt=""></p>
+<h2 id="点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板"><a href="#点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板" class="headerlink" title="点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板"></a>点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板</h2><p><img src="http://pitysgsqn.bkt.clouddn.com/Snipaste_2018-11-27_16-36-46.png" alt=""></p>
+<pre><code>public java.lang.String toString() {
+final java.lang.StringBuilder sb = new java.lang.StringBuilder(&quot;{&quot;);
+#set ($i = 0)
+#foreach ($member in $members)#if ($i == 0)
+sb.append(&quot;#####
+#else
+sb.append(&quot;,####
+#end#if ($member.string || $member.date)
+\&quot;$member.name\&quot;:\&quot;&quot;)
+#else
+\&quot;$member.name\&quot;:&quot;)
+#end#if ($member.primitiveArray || $member.objectArray)
+.append(java.util.Arrays.toString($member.name));
+#elseif ($member.string || $member.date)
+.append($member.accessor).append(&apos;\&quot;&apos;);
+#else
+.append($member.accessor);
+#end#set ($i = $i + 1)
+#end
+sb.append(&apos;}&apos;);
+return sb.toString();
+}
+</code></pre><h2 id="重写toString-时可以使用此模板生成"><a href="#重写toString-时可以使用此模板生成" class="headerlink" title="重写toString()时可以使用此模板生成"></a>重写toString()时可以使用此模板生成</h2>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/select2与bootstrap模态框显示冲突/">2018-11-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/Blog/2018/11/26/select2与bootstrap模态框显示冲突/">select2与bootstrap模态框显示冲突</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="select2-加入-dropdownParent-属性，设置父元素modal"><a href="#select2-加入-dropdownParent-属性，设置父元素modal" class="headerlink" title="select2 加入 dropdownParent 属性，设置父元素modal"></a>select2 加入 dropdownParent 属性，设置父元素modal</h2><pre><code>$(&quot;.select2-demo&quot;).select2({
+        dropdownParent:$(&quot;#Modal-demo&quot;)
+    }); 
+</code></pre><h2 id="css设置，让select2的选择弹出层位于最上层，否则将被modal遮挡住"><a href="#css设置，让select2的选择弹出层位于最上层，否则将被modal遮挡住" class="headerlink" title="css设置，让select2的选择弹出层位于最上层，否则将被modal遮挡住"></a>css设置，让select2的选择弹出层位于最上层，否则将被modal遮挡住</h2><pre><code>.select2-drop {
+       z-index: 10050 !important;
+   }
+   .select2-search-choice-close {
+       margin-top: 0 !important;
+       right: 2px !important;
+       min-height: 10px;
+   }
+   .select2-search-choice-close:before {
+       color: black !important;
+   }
+   /*防止select2不会自动失去焦点*/
+   .select2-container {
+       z-index: 16000 !important;
+   }
+   .select2-drop-mask {
+       z-index: 15990 !important;
+   }
+   .select2-drop-active {
+       z-index: 15995 !important;
+   }
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/sql执行顺序/">2018-11-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/Blog/2018/11/26/sql执行顺序/">sql执行顺序</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="SQL逻辑查询语句执行顺序"><a href="#SQL逻辑查询语句执行顺序" class="headerlink" title="SQL逻辑查询语句执行顺序"></a>SQL逻辑查询语句执行顺序</h3><pre><code>(7)     SELECT 
+(8)     DISTINCT &lt;select_list&gt;
+(1)     FROM &lt;left_table&gt;
+(3)     &lt;join_type&gt; JOIN &lt;right_table&gt;
+(2)     ON &lt;join_condition&gt;
+(4)     WHERE &lt;where_condition&gt;
+(5)     GROUP BY &lt;group_by_list&gt;
+(6)     HAVING &lt;having_condition&gt;
+(9)     ORDER BY &lt;order_by_condition&gt;
+(10)    LIMIT &lt;limit_number&gt;
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/idea常用快捷键/">2018-11-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/Blog/2018/11/26/idea常用快捷键/">idea常用快捷键</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>CTRL+ALT+T    把选中的代码放在 TRY{} IF{} ELSE{} 里<br>Ctrl + I   实现方法<br>Ctrl + O 重写方法<br>Ctr+shift+U   大小写转化<br>Ctrl+Shift+J  整合两行为一行<br>CTRL+ALT+L  格式化代码<br>CTRL+P   方法参数提示<br>CTRL+Q  可以看到当前方法的声明<br>Shift+F6   重构-重命名 (包、类、方法、变量、甚至注释等)<br>Ctrl＋Shift＋Backspace可以跳转到上次编辑的地<br>CTRL+ALT+ left/right  前后导航编辑过的地方<br>Alt+ left/right 切换代码视图<br>ALT+ ↑/↓  在方法间快速移动定位<br>ALT+F7 找到你的函数或者变量或者类的所有引用到的地方<br>Ctrl+N   查找类<br>Ctrl+Shift+N 查找文件<br>CTRL+E   最近打开的文件<br>F2  警告快速定位<br>CTRL+ALT+B  找所有的子类<br>Ctrl+H 显示类结构图<br>Ctrl+Q 显示注释文档<br>CTRL+Z   倒退(撤销)<br>CTRL+SHIFT+Z  向前(取消撤销)<br>Shift+F6  重命名 </p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/常用sql/">2018-11-26</a></time>
       
       
@@ -203,18 +459,63 @@ ORDER BY
     <header>
       
         <div class="icon"></div>
-        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/idea常用快捷键/">2018-11-26</a></time>
+        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/ie发送请求时中文乱码，无法访问/">2018-11-26</a></time>
       
       
   
-    <h1 class="title"><a href="/Blog/2018/11/26/idea常用快捷键/">idea常用快捷键</a></h1>
+    <h1 class="title"><a href="/Blog/2018/11/26/ie发送请求时中文乱码，无法访问/">ie发送请求时中文乱码，无法访问</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>CTRL+ALT+T    把选中的代码放在 TRY{} IF{} ELSE{} 里<br>Ctrl + I   实现方法<br>Ctr+shift+U   大小写转化<br>Ctrl+Shift+J  整合两行为一行<br>CTRL+ALT+L  格式化代码<br>CTRL+P   方法参数提示<br>CTRL+Q  可以看到当前方法的声明<br>Shift+F6   重构-重命名 (包、类、方法、变量、甚至注释等)<br>Ctrl＋Shift＋Backspace可以跳转到上次编辑的地<br>CTRL+ALT+ left/right  前后导航编辑过的地方<br>Alt+ left/right 切换代码视图<br>ALT+ ↑/↓  在方法间快速移动定位<br>ALT+F7 找到你的函数或者变量或者类的所有引用到的地方<br>Ctrl+N   查找类<br>Ctrl+Shift+N 查找文件<br>CTRL+E   最近打开的文件<br>F2  警告快速定位<br>CTRL+ALT+B  找所有的子类<br>Ctrl+H 显示类结构图<br>Ctrl+Q 显示注释文档<br>CTRL+Z   倒退(撤销)<br>CTRL+SHIFT+Z  向前(取消撤销)<br>Shift+F6  重命名 </p>
+        <h2 id="在封装ajax时，使用encodeURI（）方法对url进行编码"><a href="#在封装ajax时，使用encodeURI（）方法对url进行编码" class="headerlink" title="在封装ajax时，使用encodeURI（）方法对url进行编码"></a>在封装ajax时，使用encodeURI（）方法对url进行编码</h2><pre><code>$.ajax({
+      type:&quot;post&quot;,
+      url:encodeURI(&quot;http://localhost:8080/test/test?name=测试&quot;),
+      success:function(){
+      }
+  })
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
 
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-11-25T16:00:00.000Z"><a href="/Blog/2018/11/26/前端页面刷新一次/">2018-11-26</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/Blog/2018/11/26/前端页面刷新一次/">页面刷新一次</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>页面刷新一次</p>
+<pre><code>window.onload = function(){
+        var url=document.location.href;  //获取浏览器访问栏里的地址
+        if( url.indexOf(&quot;rflag=&quot;)==-1 ){    //判断地址后面是否多了某些值，没有就进方法里进行刷新
+            var t = new Date();
+            window.location.href = url+&quot;?rflag=&quot;+t.getTime();
+        }
+    }
+</code></pre>
       
     </div>
     <footer>
@@ -251,9 +552,13 @@ ORDER BY
   <h3 class="title">Categories</h3>
   <ul class="entry">
   
-    <li><a href="/Blog/categories/idea/">idea</a><small>2</small></li>
+    <li><a href="/Blog/categories/concurrent/">concurrent</a><small>1</small></li>
   
-    <li><a href="/Blog/categories/java-se/">java se</a><small>1</small></li>
+    <li><a href="/Blog/categories/idea/">idea</a><small>3</small></li>
+  
+    <li><a href="/Blog/categories/java-ee/">java ee</a><small>1</small></li>
+  
+    <li><a href="/Blog/categories/java-se/">java se</a><small>3</small></li>
   
     <li><a href="/Blog/categories/mysql/">mysql</a><small>2</small></li>
   
@@ -262,6 +567,8 @@ ORDER BY
     <li><a href="/Blog/categories/前端/">前端</a><small>3</small></li>
   
     <li><a href="/Blog/categories/加密/">加密</a><small>1</small></li>
+  
+    <li><a href="/Blog/categories/工农工具/">工农工具</a><small>1</small></li>
   
     <li><a href="/Blog/categories/日志/">日志</a><small>2</small></li>
   
@@ -278,7 +585,9 @@ ORDER BY
   
     <li><a href="/Blog/tags/Interceptor/">Interceptor</a><small>1</small></li>
   
-    <li><a href="/Blog/tags/class/">class</a><small>1</small></li>
+    <li><a href="/Blog/tags/class/">class</a><small>3</small></li>
+  
+    <li><a href="/Blog/tags/email/">email</a><small>1</small></li>
   
     <li><a href="/Blog/tags/hash/">hash</a><small>1</small></li>
   
@@ -287,6 +596,8 @@ ORDER BY
     <li><a href="/Blog/tags/logback/">logback</a><small>1</small></li>
   
     <li><a href="/Blog/tags/select2冲突/">select2冲突</a><small>1</small></li>
+  
+    <li><a href="/Blog/tags/software/">software</a><small>1</small></li>
   
     <li><a href="/Blog/tags/sql/">sql</a><small>2</small></li>
   

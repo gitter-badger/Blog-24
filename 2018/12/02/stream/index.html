@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>拦截器 | 你的ENTER键价值千亿</title>
+  <title>Stream | 你的ENTER键价值千亿</title>
   <meta name="author" content="JosephGK">
   
   <meta name="description" content="gekun,葛坤">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="拦截器">
+  <meta property="og:title" content="Stream">
   <meta property="og:site_name" content="你的ENTER键价值千亿">
 
   
@@ -51,44 +51,53 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2018-11-28T16:00:00.000Z"><a href="/Blog/2018/11/29/拦截器/">2018-11-29</a></time>
+        <time datetime="2018-12-01T16:00:00.000Z"><a href="/Blog/2018/12/02/stream/">2018-12-02</a></time>
       
       
   
-    <h1 class="title">拦截器</h1>
+    <h1 class="title">Stream</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="新建类实现HandlerInterceptor或者继承HandlerInterceptorAdapter"><a href="#新建类实现HandlerInterceptor或者继承HandlerInterceptorAdapter" class="headerlink" title="新建类实现HandlerInterceptor或者继承HandlerInterceptorAdapter"></a>新建类实现HandlerInterceptor或者继承HandlerInterceptorAdapter</h2><pre><code>public class SessionInterceptor extends HandlerInterceptorAdapter {
-    //spring-mvc配置文件中增加此类
-
-    @Override public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-            throws Exception {
-        System.out.println(&quot;preHandle&quot;);
-        return super.preHandle(request, response, handler);
+        <h2 id="流常用用法"><a href="#流常用用法" class="headerlink" title="流常用用法"></a>流常用用法</h2><h3 id="List-gt-Map-lt-Integer-Obj-gt"><a href="#List-gt-Map-lt-Integer-Obj-gt" class="headerlink" title="List =&gt; Map&lt;Integer,Obj&gt;"></a>List<obj> =&gt; Map&lt;Integer,Obj&gt;</obj></h3><pre><code>public static void listObjTomapIntergerObj(){
+        List&lt;User&gt; users = Arrays.asList(new User(1, &quot;Tomcat&quot;), new User(2, &quot;Apache&quot;), new User(3, &quot;Nginx&quot;));
+        //方法一
+        Map&lt;Integer, User&gt; map = users.stream().collect(Collectors.toMap(obj -&gt; obj.getId() , obj -&gt; obj));
+        //方法二maven-compiler-plugin
+        //Map&lt;Integer, User&gt; map = users.stream().collect(Collectors.toMap(User::getId , obj -&gt; obj));
+        System.out.println(map);
     }
-
-    @Override public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-            ModelAndView modelAndView) throws Exception {
-        System.out.println(&quot;postHandle&quot;);
-        super.postHandle(request, response, handler, modelAndView);
-    }
-
-    @Override public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
-            Exception ex) throws Exception {
-        System.out.println(&quot;afterCompletion&quot;);
-        super.afterCompletion(request, response, handler, ex);
-    }
+</code></pre><h3 id="List-gt-List"><a href="#List-gt-List" class="headerlink" title="List  =&gt;  List"></a>List<map>  =&gt;  List<string></string></map></h3><pre><code>public static void listMapTolistString(){
+    List&lt;Map&lt;String, String&gt;&gt; list = new ArrayList&lt;&gt;();
+    Map&lt;String, String&gt; map1 = new HashMap&lt;&gt;();
+    map1.put(&quot;id&quot;, &quot;101&quot;);
+    map1.put(&quot;name&quot;, &quot;Tomcat&quot;);
+    Map&lt;String, String&gt; map2 = new HashMap&lt;&gt;();
+    map2.put(&quot;id&quot;, &quot;102&quot;);
+    map2.put(&quot;name&quot;, &quot;Apache&quot;);
+    Map&lt;String, String&gt; map3 = new HashMap&lt;&gt;();
+    map3.put(&quot;id&quot;, &quot;103&quot;);
+    map3.put(&quot;name&quot;, &quot;Nginx&quot;);
+    list.add(map1);
+    list.add(map2);
+    list.add(map3);
+    //方法一
+    List&lt;String&gt; ids = list.stream().map(entity -&gt; entity.get(&quot;id&quot;)).collect(Collectors.toList());
+    //方法二
+    //List&lt;Object&gt; ids = Arrays.asList(list.stream().map(entity -&gt; entity.get(&quot;id&quot;)).toArray());
+    System.out.println(ids);
 }
-</code></pre><h2 id="在springmvc配置文件中增加此类"><a href="#在springmvc配置文件中增加此类" class="headerlink" title="在springmvc配置文件中增加此类"></a>在springmvc配置文件中增加此类</h2><pre><code>&lt;mvc:interceptors&gt;
-    &lt;mvc:interceptor&gt;
-        &lt;mvc:mapping path=&quot;/**&quot;/&gt;
-        &lt;mvc:exclude-mapping path=&quot;/login&quot;/&gt;
-        &lt;bean class=&quot;joseph.study.springmvc.interceptors.SessionInterceptor&quot;/&gt;
-    &lt;/mvc:interceptor&gt;
-&lt;/mvc:interceptors&gt;
+</code></pre><h3 id="String-gt-Map"><a href="#String-gt-Map" class="headerlink" title="String  =&gt;  Map"></a>String  =&gt;  Map</h3><pre><code>public static void strTomap(){
+    String str = &quot;type=1&amp;from=APP&amp;source=homePage&quot;;
+    Map&lt;String, String&gt; map = Stream.of(str.split(&quot;&amp;&quot;)).map(obj -&gt; obj.split(&quot;=&quot;)).collect(Collectors.toMap(entry -&gt; entry[0], entry -&gt; entry[1]));
+    System.out.println(map);
+}
+</code></pre><h3 id="List-gt-List-1"><a href="#List-gt-List-1" class="headerlink" title="List  =&gt;  List"></a>List<string>  =&gt;  List<integer></integer></string></h3><pre><code>public static void listStrTolistInteger(){
+    List&lt;String&gt; strs = Arrays.asList(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;);
+    List&lt;Integer&gt; ints = strs.stream().map(obj -&gt; Integer.valueOf(obj)).collect(Collectors.toList());
+}
 </code></pre>
       
     </div>
@@ -97,13 +106,13 @@
         
   
   <div class="categories">
-    <a href="/Blog/categories/springmvc/">springmvc</a>
+    <a href="/Blog/categories/java-se/">java se</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/Blog/tags/Interceptor/">Interceptor</a>
+    <a href="/Blog/tags/class/">class</a>
   </div>
 
         
@@ -129,7 +138,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="https://josephagk.github.io/2018/11/29/拦截器/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="https://josephagk.github.io/2018/12/02/stream/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
