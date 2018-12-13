@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>工农工具 | 你的ENTER键价值千亿</title>
+  <title>jep转换和计算数学表达式 | 你的ENTER键价值千亿</title>
   <meta name="author" content="JosephGK">
   
   <meta name="description" content="gekun,葛坤">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="jep转换和计算数学表达式">
   <meta property="og:site_name" content="你的ENTER键价值千亿">
 
   
@@ -45,25 +45,83 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">工农工具</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2018-12-09T16:00:00.000Z"><a href="/Blog/2018/12/10/jep/">2018-12-10</a></time>
+      
+      
+  
+    <h1 class="title">jep转换和计算数学表达式</h1>
+  
 
-
-  <div class="archive">
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2018-11-29T16:00:00.000Z"><a href="/Blog/2018/11/30/常用工具/">2018-11-30</a></time>
-            
-              <h1 class="title"><a href="/Blog/2018/11/30/常用工具/">常用软件</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+    </header>
+    <div class="entry">
+      
+        <h3 id="引入maven依赖"><a href="#引入maven依赖" class="headerlink" title="引入maven依赖"></a>引入maven依赖</h3><pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;jep&lt;/groupId&gt;
+    &lt;artifactId&gt;jep&lt;/artifactId&gt;
+    &lt;version&gt;2.24&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code>JEP jep = new JEP();
+//设置公式
+String expression = &quot;((a+b)*(c+b))/(c+a)/b&quot;;
+//变量赋值
+jep.addVariable(&quot;a&quot;,10);
+jep.addVariable(&quot;b&quot;,10);
+jep.addVariable(&quot;c&quot;,10);
+//运算
+jep.parseExpression(expression);
+//结果
+System.out.println(jep.getValue());
+</code></pre>
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/Blog/categories/java-se/">java se</a>
   </div>
+
+        
+  
+  <div class="tags">
+    <a href="/Blog/tags/class/">class</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="https://josephagk.github.io/2018/12/10/jep/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -82,19 +140,19 @@
   
     <li><a href="/Blog/categories/idea/">idea</a><small>3</small></li>
   
-    <li><a href="/Blog/categories/java-ee/">java ee</a><small>1</small></li>
+    <li><a href="/Blog/categories/java-ee/">java ee</a><small>2</small></li>
   
-    <li><a href="/Blog/categories/java-se/">java se</a><small>3</small></li>
+    <li><a href="/Blog/categories/java-se/">java se</a><small>5</small></li>
   
     <li><a href="/Blog/categories/mysql/">mysql</a><small>2</small></li>
   
-    <li><a href="/Blog/categories/springmvc/">springmvc</a><small>1</small></li>
+    <li><a href="/Blog/categories/springmvc/">springmvc</a><small>2</small></li>
   
     <li><a href="/Blog/categories/前端/">前端</a><small>3</small></li>
   
     <li><a href="/Blog/categories/加密/">加密</a><small>1</small></li>
   
-    <li><a href="/Blog/categories/工农工具/">工农工具</a><small>1</small></li>
+    <li><a href="/Blog/categories/工具/">工具</a><small>1</small></li>
   
     <li><a href="/Blog/categories/日志/">日志</a><small>2</small></li>
   
@@ -111,9 +169,11 @@
   
     <li><a href="/Blog/tags/Interceptor/">Interceptor</a><small>1</small></li>
   
-    <li><a href="/Blog/tags/class/">class</a><small>3</small></li>
+    <li><a href="/Blog/tags/class/">class</a><small>5</small></li>
   
     <li><a href="/Blog/tags/email/">email</a><small>1</small></li>
+  
+    <li><a href="/Blog/tags/ftp/">ftp</a><small>1</small></li>
   
     <li><a href="/Blog/tags/hash/">hash</a><small>1</small></li>
   
