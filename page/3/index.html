@@ -742,7 +742,7 @@ tringTokenizer Demo
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://josephagk.github.io/Blog/2018/11/26/前端页面刷新一次/">
+    <link itemprop="mainEntityOfPage" href="https://josephagk.github.io/Blog/2018/11/26/sql执行顺序/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JosephGK">
@@ -761,7 +761,7 @@ tringTokenizer Demo
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/Blog/2018/11/26/前端页面刷新一次/" itemprop="url">页面刷新一次</a></h1>
+                <a class="post-title-link" href="/Blog/2018/11/26/sql执行顺序/" itemprop="url">sql执行顺序</a></h1>
         
 
         <div class="post-meta">
@@ -796,8 +796,8 @@ tringTokenizer Demo
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/Blog/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/Blog/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
                   </a>
                 </span>
 
@@ -835,14 +835,16 @@ tringTokenizer Demo
       
         
           
-            <p>页面刷新一次</p>
-<pre><code>window.onload = function(){
-        var url=document.location.href;  //获取浏览器访问栏里的地址
-        if( url.indexOf(&quot;rflag=&quot;)==-1 ){    //判断地址后面是否多了某些值，没有就进方法里进行刷新
-            var t = new Date();
-            window.location.href = url+&quot;?rflag=&quot;+t.getTime();
-        }
-    }
+            <h3 id="SQL逻辑查询语句执行顺序"><a href="#SQL逻辑查询语句执行顺序" class="headerlink" title="SQL逻辑查询语句执行顺序"></a>SQL逻辑查询语句执行顺序</h3><pre><code>(7)     SELECT 
+(8)     DISTINCT &lt;select_list&gt;
+(1)     FROM &lt;left_table&gt;
+(3)     &lt;join_type&gt; JOIN &lt;right_table&gt;
+(2)     ON &lt;join_condition&gt;
+(4)     WHERE &lt;where_condition&gt;
+(5)     GROUP BY &lt;group_by_list&gt;
+(6)     HAVING &lt;having_condition&gt;
+(9)     ORDER BY &lt;order_by_condition&gt;
+(10)    LIMIT &lt;limit_number&gt;
 </code></pre>
           
         
@@ -1056,7 +1058,7 @@ tringTokenizer Demo
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://josephagk.github.io/Blog/2018/11/26/idea常用快捷键/">
+    <link itemprop="mainEntityOfPage" href="https://josephagk.github.io/Blog/2018/11/26/前端页面刷新一次/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JosephGK">
@@ -1075,7 +1077,7 @@ tringTokenizer Demo
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/Blog/2018/11/26/idea常用快捷键/" itemprop="url">idea常用快捷键</a></h1>
+                <a class="post-title-link" href="/Blog/2018/11/26/前端页面刷新一次/" itemprop="url">页面刷新一次</a></h1>
         
 
         <div class="post-meta">
@@ -1110,8 +1112,8 @@ tringTokenizer Demo
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/Blog/categories/idea/" itemprop="url" rel="index">
-                    <span itemprop="name">idea</span>
+                  <a href="/Blog/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -1149,173 +1151,15 @@ tringTokenizer Demo
       
         
           
-            <p>CTRL+ALT+T    把选中的代码放在 TRY{} IF{} ELSE{} 里<br>Ctrl + I   实现方法<br>Ctrl + O 重写方法<br>Ctr+shift+U   大小写转化<br>Ctrl+Shift+J  整合两行为一行<br>CTRL+ALT+L  格式化代码<br>CTRL+P   方法参数提示<br>CTRL+Q  可以看到当前方法的声明<br>Shift+F6   重构-重命名 (包、类、方法、变量、甚至注释等)<br>Ctrl＋Shift＋Backspace可以跳转到上次编辑的地<br>CTRL+ALT+ left/right  前后导航编辑过的地方<br>Alt+ left/right 切换代码视图<br>ALT+ ↑/↓  在方法间快速移动定位<br>ALT+F7 找到你的函数或者变量或者类的所有引用到的地方<br>Ctrl+N   查找类<br>Ctrl+Shift+N 查找文件<br>CTRL+E   最近打开的文件<br>F2  警告快速定位<br>CTRL+ALT+B  找所有的子类<br>Ctrl+H 显示类结构图<br>Ctrl+Q 显示注释文档<br>CTRL+Z   倒退(撤销)<br>CTRL+SHIFT+Z  向前(取消撤销)<br>Shift+F6  重命名(包括文件名，变量名批量修改) </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://josephagk.github.io/Blog/2018/11/26/idea中设置生成toString为json/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JosephGK">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/Blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="你的ENTER键价值千亿">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Blog/2018/11/26/idea中设置生成toString为json/" itemprop="url">idea中设置toString为json格式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T00:00:00+08:00">
-                2018-11-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/Blog/categories/idea/" itemprop="url" rel="index">
-                    <span itemprop="name">idea</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="shift-g-调出生成对话框，点击toString-，弹出Generate-toString-对话框"><a href="#shift-g-调出生成对话框，点击toString-，弹出Generate-toString-对话框" class="headerlink" title="shift+g 调出生成对话框，点击toString()，弹出Generate toString()对话框"></a>shift+g 调出生成对话框，点击toString()，弹出Generate toString()对话框</h2><p><img src="http://pitysgsqn.bkt.clouddn.com/Snipaste_2018-11-27_16-35-39.png" alt=""></p>
-<h2 id="点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板"><a href="#点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板" class="headerlink" title="点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板"></a>点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板</h2><p><img src="http://pitysgsqn.bkt.clouddn.com/Snipaste_2018-11-27_16-36-46.png" alt=""></p>
-<pre><code>public java.lang.String toString() {
-final java.lang.StringBuilder sb = new java.lang.StringBuilder(&quot;{&quot;);
-#set ($i = 0)
-#foreach ($member in $members)#if ($i == 0)
-sb.append(&quot;#####
-#else
-sb.append(&quot;,####
-#end#if ($member.string || $member.date)
-\&quot;$member.name\&quot;:\&quot;&quot;)
-#else
-\&quot;$member.name\&quot;:&quot;)
-#end#if ($member.primitiveArray || $member.objectArray)
-.append(java.util.Arrays.toString($member.name));
-#elseif ($member.string || $member.date)
-.append($member.accessor).append(&apos;\&quot;&apos;);
-#else
-.append($member.accessor);
-#end#set ($i = $i + 1)
-#end
-sb.append(&apos;}&apos;);
-return sb.toString();
-}
-</code></pre><h2 id="重写toString-时可以使用此模板生成"><a href="#重写toString-时可以使用此模板生成" class="headerlink" title="重写toString()时可以使用此模板生成"></a>重写toString()时可以使用此模板生成</h2>
+            <p>页面刷新一次</p>
+<pre><code>window.onload = function(){
+        var url=document.location.href;  //获取浏览器访问栏里的地址
+        if( url.indexOf(&quot;rflag=&quot;)==-1 ){    //判断地址后面是否多了某些值，没有就进方法里进行刷新
+            var t = new Date();
+            window.location.href = url+&quot;?rflag=&quot;+t.getTime();
+        }
+    }
+</code></pre>
           
         
       
@@ -1770,6 +1614,313 @@ ORDER BY
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://josephagk.github.io/Blog/2018/11/26/idea常用快捷键/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JosephGK">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/Blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="你的ENTER键价值千亿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Blog/2018/11/26/idea常用快捷键/" itemprop="url">idea常用快捷键</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T00:00:00+08:00">
+                2018-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/Blog/categories/idea/" itemprop="url" rel="index">
+                    <span itemprop="name">idea</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>CTRL+ALT+T    把选中的代码放在 TRY{} IF{} ELSE{} 里<br>Ctrl + I   实现方法<br>Ctrl + O 重写方法<br>Ctr+shift+U   大小写转化<br>Ctrl+Shift+J  整合两行为一行<br>CTRL+ALT+L  格式化代码<br>CTRL+P   方法参数提示<br>CTRL+Q  可以看到当前方法的声明<br>Shift+F6   重构-重命名 (包、类、方法、变量、甚至注释等)<br>Ctrl＋Shift＋Backspace可以跳转到上次编辑的地<br>CTRL+ALT+ left/right  前后导航编辑过的地方<br>Alt+ left/right 切换代码视图<br>ALT+ ↑/↓  在方法间快速移动定位<br>ALT+F7 找到你的函数或者变量或者类的所有引用到的地方<br>Ctrl+N   查找类<br>Ctrl+Shift+N 查找文件<br>CTRL+E   最近打开的文件<br>F2  警告快速定位<br>CTRL+ALT+B  找所有的子类<br>Ctrl+H 显示类结构图<br>Ctrl+Q 显示注释文档<br>CTRL+Z   倒退(撤销)<br>CTRL+SHIFT+Z  向前(取消撤销)<br>Shift+F6  重命名(包括文件名，变量名批量修改) </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://josephagk.github.io/Blog/2018/11/26/idea中设置生成toString为json/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JosephGK">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/Blog/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="你的ENTER键价值千亿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Blog/2018/11/26/idea中设置生成toString为json/" itemprop="url">idea中设置toString为json格式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T00:00:00+08:00">
+                2018-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/Blog/categories/idea/" itemprop="url" rel="index">
+                    <span itemprop="name">idea</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="shift-g-调出生成对话框，点击toString-，弹出Generate-toString-对话框"><a href="#shift-g-调出生成对话框，点击toString-，弹出Generate-toString-对话框" class="headerlink" title="shift+g 调出生成对话框，点击toString()，弹出Generate toString()对话框"></a>shift+g 调出生成对话框，点击toString()，弹出Generate toString()对话框</h2><p><img src="http://pitysgsqn.bkt.clouddn.com/Snipaste_2018-11-27_16-35-39.png" alt=""></p>
+<h2 id="点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板"><a href="#点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板" class="headerlink" title="点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板"></a>点击setting按钮，打开对话框后选择Templates选项新建一个模板，可以模仿StringBuffer模板</h2><p><img src="http://pitysgsqn.bkt.clouddn.com/Snipaste_2018-11-27_16-36-46.png" alt=""></p>
+<pre><code>public java.lang.String toString() {
+final java.lang.StringBuilder sb = new java.lang.StringBuilder(&quot;{&quot;);
+#set ($i = 0)
+#foreach ($member in $members)#if ($i == 0)
+sb.append(&quot;#####
+#else
+sb.append(&quot;,####
+#end#if ($member.string || $member.date)
+\&quot;$member.name\&quot;:\&quot;&quot;)
+#else
+\&quot;$member.name\&quot;:&quot;)
+#end#if ($member.primitiveArray || $member.objectArray)
+.append(java.util.Arrays.toString($member.name));
+#elseif ($member.string || $member.date)
+.append($member.accessor).append(&apos;\&quot;&apos;);
+#else
+.append($member.accessor);
+#end#set ($i = $i + 1)
+#end
+sb.append(&apos;}&apos;);
+return sb.toString();
+}
+</code></pre><h2 id="重写toString-时可以使用此模板生成"><a href="#重写toString-时可以使用此模板生成" class="headerlink" title="重写toString()时可以使用此模板生成"></a>重写toString()时可以使用此模板生成</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://josephagk.github.io/Blog/2018/11/26/页面兼容性/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1869,157 +2020,6 @@ ORDER BY
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//使用如下方式曲线救国</span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">onFocus</span>=<span class="string">"if(value==defaultValue)&#123;value=''&#125;"</span> <span class="attr">onBlur</span>=<span class="string">"if(!value)&#123;value=defaultValue;&#125;"</span>&gt;</span>请填写<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://josephagk.github.io/Blog/2018/11/26/sql执行顺序/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="JosephGK">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/Blog/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="你的ENTER键价值千亿">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Blog/2018/11/26/sql执行顺序/" itemprop="url">sql执行顺序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T00:00:00+08:00">
-                2018-11-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/Blog/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="SQL逻辑查询语句执行顺序"><a href="#SQL逻辑查询语句执行顺序" class="headerlink" title="SQL逻辑查询语句执行顺序"></a>SQL逻辑查询语句执行顺序</h3><pre><code>(7)     SELECT 
-(8)     DISTINCT &lt;select_list&gt;
-(1)     FROM &lt;left_table&gt;
-(3)     &lt;join_type&gt; JOIN &lt;right_table&gt;
-(2)     ON &lt;join_condition&gt;
-(4)     WHERE &lt;where_condition&gt;
-(5)     GROUP BY &lt;group_by_list&gt;
-(6)     HAVING &lt;having_condition&gt;
-(9)     ORDER BY &lt;order_by_condition&gt;
-(10)    LIMIT &lt;limit_number&gt;
-</code></pre>
           
         
       
